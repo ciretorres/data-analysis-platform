@@ -26,6 +26,5 @@
 
 ## Pendiente
 
-- Crear repositorio en GitHub y subir código
 - Conectar frontend con backend (nivel futuro)
 - Implementar CRUD de datos (nivel futuro)
