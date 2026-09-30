@@ -4,6 +4,7 @@
 
 - **Nivel**: 0 (entorno de desarrollo local)
 - **Fase**: Estructura inicial completada
+- **Versión**: 1.0.0
 - **Última actualización**: 2026-09-30
 
 ## Decisiones técnicas
