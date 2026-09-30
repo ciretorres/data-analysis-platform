@@ -1,0 +1,19 @@
+{
+  "name": "data-analysis-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma web para cargar, procesar y visualizar archivos de datos CSV",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && source venv/bin/activate && uvicorn app.main:app --reload",
+    "install:all": "cd frontend && npm install && cd ../backend && pip install -r requirements.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ciretorres/data-analysis-platform"
+  },
+  "bugs": {
+    "url": "https://github.com/ciretorres/data-analysis-platform/issues"
+  },
+  "homepage": "https://github.com/ciretorres/data-analysis-platform#readme"
+}
