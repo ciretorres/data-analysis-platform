@@ -35,3 +35,13 @@
 - Conectar frontend con backend (nivel futuro)
 - Implementar CRUD de datos (nivel futuro)
 - *(Opcional)* Tipos de respuesta en `main.py` según la skill `fastapi`
+
+## Notas
+
+- Constitución creada en `docs/constitution.md` con 6 principios innegociables
+- Skills del agente configuradas en `.agents/skills/` (fastapi, nuxt, accessibility, seo, find-skills)
+- MCP context7 configurado en `opencode.json` para documentación oficial de Nuxt 4
+- Spec 001 (nivel 0) creada en `specs/001-preparacion-entorno/spec.md`, estado: completado
+- Spec 002 (nivel 1) creada en `specs/002-interfaz-frontend/spec.md`, estado: aprobada (pendiente de implementación)
+- AGENTS.md reorganizado: specs/ añadido a estructura, sección "Spec primero", límites actualizados a nivel 1, Skills+MCP fusionados
+- Regla: no hacer commit ni push a GitHub sin preguntar antes al usuario (movida a AGENTS.md como regla permanente)
