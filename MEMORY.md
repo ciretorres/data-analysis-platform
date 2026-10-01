@@ -32,7 +32,6 @@
 
 ## Pendiente
 
-- Decidir si `.agents/`, `.opencode/` y `skills-lock.json` se commitean o van a `.gitignore`
 - Conectar frontend con backend (nivel futuro)
 - Implementar CRUD de datos (nivel futuro)
 - *(Opcional)* Tipos de respuesta en `main.py` según la skill `fastapi`
