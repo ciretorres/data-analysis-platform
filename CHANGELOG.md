@@ -6,8 +6,15 @@
 
 - feat: añadir la página de bienvenida del nivel 0 al frontend [`ee07c9e`](https://github.com/ciretorres/data-analysis-platform/commit/ee07c9e)
 
+### 🐛 Bug Fixes
+
+- fix: crear el venv del backend en install:all y usar rutas directas en dev:backend [`8b88245`](https://github.com/ciretorres/data-analysis-platform/commit/8b88245)
+
 ### 📦 Other Changes
 
+- docs: documentar el requisito de python3.12-venv y los atajos de scripts [`cf22a90`](https://github.com/ciretorres/data-analysis-platform/commit/cf22a90)
+- chore: limpiar paquetes extraneous del lockfile del frontend [`94cf697`](https://github.com/ciretorres/data-analysis-platform/commit/94cf697)
+- docs: registrar el fix de scripts en MEMORY.md [`2e6361a`](https://github.com/ciretorres/data-analysis-platform/commit/2e6361a)
 - docs: actualizar MEMORY.md con specs, QA y nivel 0 [`5144034`](https://github.com/ciretorres/data-analysis-platform/commit/5144034)
 - chore: ajustar el .gitignore a la estructura frontend/ y backend/ [`0ba30ae`](https://github.com/ciretorres/data-analysis-platform/commit/0ba30ae)
 - docs: añadir plan y tasks de la spec 002 [`94771cf`](https://github.com/ciretorres/data-analysis-platform/commit/94771cf)
