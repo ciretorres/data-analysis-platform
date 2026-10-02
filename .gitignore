@@ -1,46 +1,23 @@
 # Python
+backend/venv/
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-.venv/
-env/
-ENV/
-env.bak/
-venv.bak/
+*.pyc
+*.pyo
 
 # Node / Nuxt
-node_modules/
-.nuxt/
-.output/
-dist/
-.cache/
-*.log
+frontend/node_modules/
+frontend/.nuxt/
+frontend/.output/
+frontend/.data/
 
-# Environment variables
+# Entorno
 .env
 .env.local
-.env.*.local
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+# Sistema
 .DS_Store
 Thumbs.db
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
+# Logs
+*.log
+npm-debug.log*
