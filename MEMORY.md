@@ -58,3 +58,4 @@
 - Spec 002: creado `specs/002-interfaz-frontend/tasks.md` (10 tareas en orden de dependencia, con RF y "Hecho cuando:") y añadida `app/app.vue` al plan
 - Regla añadida a AGENTS.md: actualizar CHANGELOG.md con cada commit o versionado
 - Regla: no hacer commit ni push a GitHub sin preguntar antes al usuario (movida a AGENTS.md como regla permanente)
+- Fix 2026-10-02: `install:all` ahora crea `backend/venv` y usa `./venv/bin/pip`; `dev:backend` usa `./venv/bin/uvicorn` (PEP 668 bloqueaba pip global y el venv no existía al clonar)
