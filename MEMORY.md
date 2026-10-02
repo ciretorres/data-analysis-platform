@@ -44,4 +44,6 @@
 - Spec 001 (nivel 0) creada en `specs/001-preparacion-entorno/spec.md`, estado: completado
 - Spec 002 (nivel 1) creada en `specs/002-interfaz-frontend/spec.md`, estado: aprobada (pendiente de implementación)
 - AGENTS.md reorganizado: specs/ añadido a estructura, sección "Spec primero", límites actualizados a nivel 1, Skills+MCP fusionados
+- CHANGELOG.md creado con estilo midudev/autoskills (versiones enlazadas, categorías con emojis, enlaces a commits)
+- Regla añadida a AGENTS.md: actualizar CHANGELOG.md con cada commit o versionado
 - Regla: no hacer commit ni push a GitHub sin preguntar antes al usuario (movida a AGENTS.md como regla permanente)

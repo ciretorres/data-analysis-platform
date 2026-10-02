@@ -84,6 +84,7 @@ Ver `.env.example`. Necesarias:
 - Nombres de archivos en snake_case (Python) y kebab-case (componentes Vue)
 - Respetar la estructura de carpetas existente
 - **NO hacer commit ni push a GitHub sin preguntar antes al usuario**
+- **Actualizar `CHANGELOG.md` con cada commit o versionado** (entrada con hash corto, categoría y enlace)
 
 ## 📐 Spec primero
 
