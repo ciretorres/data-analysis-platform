@@ -35,9 +35,15 @@ cp .env.example .env
 
 ### 3. Backend
 
+En Ubuntu/Debian instala primero el paquete `python3.12-venv` (si no, `python3 -m venv` falla por falta de `ensurepip`):
+
+```bash
+sudo apt install python3.12-venv
+```
+
 ```bash
 cd backend
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # En Windows: venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn app.main:app --reload
@@ -49,6 +55,14 @@ uvicorn app.main:app --reload
 cd frontend
 npm install
 npm run dev
+```
+
+### 5. Atajos desde la raíz
+
+```bash
+bun run install:all   # instala frontend y crea backend/venv con sus dependencias
+bun run dev:backend   # levanta FastAPI en http://localhost:8000
+bun run dev:frontend  # levanta Nuxt en http://localhost:3000
 ```
 
 ## Acceso
