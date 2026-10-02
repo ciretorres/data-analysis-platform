@@ -2,8 +2,20 @@
 
 ## [Unreleased](https://github.com/ciretorres/data-analysis-platform/compare/v1.0.0...HEAD)
 
+### ✨ Features
+
+- feat: añadir la página de bienvenida del nivel 0 al frontend [`ee07c9e`](https://github.com/ciretorres/data-analysis-platform/commit/ee07c9e)
+
 ### 📦 Other Changes
 
+- docs: actualizar MEMORY.md con specs, QA y nivel 0 [`5144034`](https://github.com/ciretorres/data-analysis-platform/commit/5144034)
+- chore: ajustar el .gitignore a la estructura frontend/ y backend/ [`0ba30ae`](https://github.com/ciretorres/data-analysis-platform/commit/0ba30ae)
+- docs: añadir plan y tasks de la spec 002 [`94771cf`](https://github.com/ciretorres/data-analysis-platform/commit/94771cf)
+- docs: añadir plan, tasks y conceptos de la spec 001 [`8fba15e`](https://github.com/ciretorres/data-analysis-platform/commit/8fba15e)
+- docs: aplicar la revisión QA a las specs 001 y 002 [`056ad5a`](https://github.com/ciretorres/data-analysis-platform/commit/056ad5a)
+- chore: añadir skill spec-driven-development y comandos ssd [`1d9553e`](https://github.com/ciretorres/data-analysis-platform/commit/1d9553e)
+- chore: añadir skill fastapi-python a nivel de proyecto [`520e2e9`](https://github.com/ciretorres/data-analysis-platform/commit/520e2e9)
+- docs: añadir CHANGELOG.md y la regla de actualizarlo con cada commit [`88e01f9`](https://github.com/ciretorres/data-analysis-platform/commit/88e01f9)
 - docs: registrar en MEMORY.md la constitución, specs y herramientas [`eaed727`](https://github.com/ciretorres/data-analysis-platform/commit/eaed727)
 - docs: reorganizar AGENTS.md con spec primero y límites del nivel 1 [`7c3a835`](https://github.com/ciretorres/data-analysis-platform/commit/7c3a835)
 - docs: añadir specs de los niveles 0 y 1 [`12ede70`](https://github.com/ciretorres/data-analysis-platform/commit/12ede70)
