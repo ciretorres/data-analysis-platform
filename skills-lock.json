@@ -34,6 +34,12 @@
       "source": "addyosmani/web-quality-skills",
       "sourceType": "autoskills-registry",
       "computedHash": "c184da724d1c61ad077f27418ea8e7e88fd54bcdf98165e18be7e4681cbd5e20"
+    },
+    "spec-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/spec-driven-development/SKILL.md",
+      "computedHash": "d4dc15caa8d97749267da68676aeadff3fb5b8d9a4462664937137ac09610e4f"
     }
   }
 }
