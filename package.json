@@ -5,8 +5,8 @@
   "description": "Plataforma web para cargar, procesar y visualizar archivos de datos CSV",
   "scripts": {
     "dev:frontend": "cd frontend && npm run dev",
-    "dev:backend": "cd backend && source venv/bin/activate && uvicorn app.main:app --reload",
-    "install:all": "cd frontend && npm install && cd ../backend && pip install -r requirements.txt"
+    "dev:backend": "cd backend && ./venv/bin/uvicorn app.main:app --reload",
+    "install:all": "cd frontend && npm install && cd ../backend && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt"
   },
   "repository": {
     "type": "git",
