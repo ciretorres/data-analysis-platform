@@ -69,13 +69,51 @@ páginas web interactivas con componentes reutilizables.
 Framework construido sobre Vue que facilita crear aplicaciones web completas.
 Añade herramientas para rutas, renderizado y más.
 
+FastAPI y Uvicorn son herramientas de Python que suelen usarse juntas para crear y ejecutar APIs web.
+
 ### FastAPI
-Framework de Python para construir APIs de forma rápida y sencilla. Genera
-documentación automática de los endpoints.
+FastAPI es un framework de Python: te permite definir rutas, recibir parámetros, validar datos y devolver respuestas JSON. FastAPI sirve para construir APIs de forma rápida y sencilla. Usa anotaciones de tipos de Python y genera documentación interactiva automáticamente de los endpoints, normalmente en /docs. Está construido sobre Starlette y Pydantic. *(Referencia: tiangolo.com)*
+
+Ejemplo:
+
+```python
+# main.py
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def inicio():
+    return {"mensaje": "Hola, mundo"}
+```
+
+Instalación:
+
+```bash
+pip install "fastapi[standard]"
+```
 
 ### Uvicorn
-Servidor web que ejecuta la aplicación FastAPI. Es el que hace que el backend
-pueda recibir peticiones.
+Uvicorn es un servidor web ASGI: recibe las peticiones HTTP desde el navegador o desde otra aplicación y se las entrega a tu aplicación FastAPI. Uvicorn ejecuta la aplicación FastAPI. Es el que hace que el backend pueda recibir peticiones. También devuelve la respuesta al cliente. Soporta HTTP/1.1, HTTP/2 y WebSockets. *(Referencia: uvicorn.dev)*
+
+Ejecución con uvicorn:
+
+```bash
+uvicorn main:app --reload
+```
+
+`main:app` significa:
+
+- `main`: el archivo `main.py`
+- `app`: el objeto creado con `FastAPI()`
+- `--reload`: reinicia el servidor automáticamente cuando modificas el código; es útil durante el desarrollo, pero no se recomienda en producción. *(Referencia: tiangolo.com)*
+
+Después puedes abrir:
+
+- `http://127.0.0.1:8000/` para probar la API
+- `http://127.0.0.1:8000/docs` para ver la documentación interactiva
+
+En resumen: **FastAPI define la API; Uvicorn la ejecuta y la expone por HTTP**.
 
 ### Editor de código
 Programa donde escribes tu código. Visual Studio Code es una opción popular,
