@@ -4,6 +4,7 @@
 
 ### ✨ Features
 
+- feat: añadir la interfaz del nivel 1 con componentes reutilizables [`0717693`](https://github.com/ciretorres/data-analysis-platform/commit/0717693)
 - feat: añadir la página de bienvenida del nivel 0 al frontend [`ee07c9e`](https://github.com/ciretorres/data-analysis-platform/commit/ee07c9e)
 
 ### 🐛 Bug Fixes
@@ -12,6 +13,8 @@
 
 ### 📦 Other Changes
 
+- docs: ampliar la spec 002 a .json y .pdf y registrar el avance [`d4a2fbf`](https://github.com/ciretorres/data-analysis-platform/commit/d4a2fbf)
+- docs: añadir la documentación de conceptos del nivel 1 [`ff08fac`](https://github.com/ciretorres/data-analysis-platform/commit/ff08fac)
 - docs: documentar el requisito de python3.12-venv y los atajos de scripts [`cf22a90`](https://github.com/ciretorres/data-analysis-platform/commit/cf22a90)
 - chore: limpiar paquetes extraneous del lockfile del frontend [`94cf697`](https://github.com/ciretorres/data-analysis-platform/commit/94cf697)
 - docs: registrar el fix de scripts en MEMORY.md [`2e6361a`](https://github.com/ciretorres/data-analysis-platform/commit/2e6361a)
