@@ -1,6 +1,6 @@
 # Spec 002 — Interfaz frontend con Vue y Nuxt
 
-**Nivel**: 1 · **Estado**: Aprobada (pendiente de implementación) · **Fecha**: 2026-09-30 · **Revisada**: 2026-10-01 (QA) · **Ampliada**: 2026-10-02 (admite .json y .pdf además de .csv)
+**Nivel**: 1 · **Estado**: Implementada · verificación manual completada 2026-10-02 · **Fecha**: 2026-09-30 · **Revisada**: 2026-10-01 (QA) · **Ampliada**: 2026-10-02 (admite .json y .pdf además de .csv)
 
 ## Contexto
 

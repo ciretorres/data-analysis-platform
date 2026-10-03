@@ -2,8 +2,8 @@
 
 ## Estado actual
 
-- **Nivel**: 1 (interfaz frontend — spec 002 implementada, verificación manual pendiente)
-- **Fase**: Implementación de la interfaz del nivel 1
+- **Nivel**: 1 completado (spec 002 implementada y verificada manualmente)
+- **Fase**: Cierre del nivel 1 — siguiente: nivel 2
 - **Versión**: 1.1.0
 - **Última actualización**: 2026-10-02
 
@@ -62,5 +62,6 @@
 - Spec 002 implementada (2026-10-02): creados `app/assets/css/main.css`, `app/pages/index.vue`, `app/components/` (AppHeader, MetricCard, FileUploader, ChartPlaceholder), `app/layouts/default.vue`, `app/utils/validacion.js`, `docs/conceptos-nivel-1.md`; `app.vue` ahora renderiza `<NuxtLayout>`+`<NuxtPage>` y `nuxt.config.ts` carga el CSS global
 - Nuxt 4 usa `frontend/app/` como srcDir: `plan.md` corregido con las rutas `frontend/app/...`
 - Verificado sin navegador: SSR completo, T5 en Node (validarExtension/formatearTamano/truncarNombre), RF-07/CL-06 (HTML idéntico con backend caído), 0 referencias a :8000, breakpoints 768/1024 en CSS
-- **Pendiente**: verificación manual en navegador (consola, selector de archivos, scroll/sticky, 375/800/1280px, zoom 200%, recarga) → tareas 1, 3, 5, 6, 8 y 10 de `specs/002-interfaz-frontend/tasks.md` sin marcar
+- Verificación manual completada por la usuaria (2026-10-02): todo correcto → **spec 002 cerrada, 10/10 tareas** en `specs/002-interfaz-frontend/tasks.md` y estado de `spec.md` actualizado a "Implementada"
+- H-1 corregido (2026-10-02): `FileUploader` usa ref de plantilla en vez de `id` fijo + `getElementById` → el componente puede instanciarse varias veces sin pisarse (RF-08); añadido `aria-label` al input
 - Ampliación pedida por el usuario (2026-10-02): el nivel 1 acepta `.json` y `.pdf` además de `.csv` → actualizados spec (RF-04, CL-01/07/10/11, criterio 4), plan, tasks, `validarExtension` (lista cerrada `EXTENSIONES_PERMITIDAS = [csv, json, pdf]`), `FileUploader` (accept dinámico, mensajes y botón) y textos de `index.vue`/conceptos
