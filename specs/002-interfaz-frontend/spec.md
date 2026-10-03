@@ -1,6 +1,6 @@
 # Spec 002 — Interfaz frontend con Vue y Nuxt
 
-**Nivel**: 1 · **Estado**: Aprobada (pendiente de implementación) · **Fecha**: 2026-09-30 · **Revisada**: 2026-10-01 (QA)
+**Nivel**: 1 · **Estado**: Aprobada (pendiente de implementación) · **Fecha**: 2026-09-30 · **Revisada**: 2026-10-01 (QA) · **Ampliada**: 2026-10-02 (admite .json y .pdf además de .csv)
 
 ## Contexto
 
@@ -63,16 +63,18 @@ etiqueta visible de "datos de ejemplo".
 La página DEBERÁ incluir un botón que abra el selector de archivos del
 sistema, muestre el nombre y el tamaño del archivo elegido (en KB o MB
 según corresponda) y valide su extensión en el navegador, sin enviar el
-archivo a ninguna parte.
+archivo a ninguna parte. En el nivel 1 la lista de formatos admitidos es
+cerrada: `.csv`, `.json` y `.pdf`. La validación es solo de nombre y
+tamaño: el contenido del archivo no se lee ni se procesa.
 - CUANDO la usuaria active el botón, entonces SE ABRIRÁ el selector de
   archivos del sistema.
 - DESPUÉS DE elegir un archivo, cuando se confirme la selección, entonces SE
   MOSTRARÁ en pantalla el nombre y el tamaño del archivo.
-- SI el archivo elegido no tiene extensión .csv (insensible a mayúsculas),
-  entonces SE MOSTRARÁ un mensaje de error en español y NO se mostrará como
-  cargado.
-- SI el archivo elegido tiene extensión .csv pero está vacío (0 bytes),
-  entonces SE MOSTRARÁ un mensaje de error en español.
+- SI el archivo elegido no termina en .csv, .json o .pdf (insensible a
+  mayúsculas), entonces SE MOSTRARÁ un mensaje de error en español y NO se
+  mostrará como cargado.
+- SI el archivo elegido tiene una extensión admitida pero está vacío
+  (0 bytes), entonces SE MOSTRARÁ un mensaje de error en español.
 - DESPUÉS de elegir un archivo, cuando se revise la interfaz, entonces EL
   ARCHIVO NO SALDRÁ del navegador.
 - El botón DEBERÁ permitir selección de un solo archivo (no múltiple).
@@ -141,8 +143,8 @@ original; el resto del texto estará en español.
 
 ## Casos límite
 
-- **CL-01**: La usuaria elige un archivo que no es .csv → se muestra error en
-  español y no se muestra como cargado.
+- **CL-01**: La usuaria elige un archivo que no es .csv, .json ni .pdf → se
+  muestra error en español y no se muestra como cargado.
 - **CL-02**: La usuaria abre el selector y cierra sin elegir nada → la
   interfaz no cambia y no muestra errores.
 - **CL-03**: La usuaria elige un archivo ya elegido antes → se reemplaza la
@@ -152,16 +154,16 @@ original; el resto del texto estará en español.
 - **CL-05**: La usuaria recarga la página → el nombre del archivo elegido se
   pierde (no hay persistencia en este nivel).
 - **CL-06**: El backend está detenido → la interfaz se comporta igual.
-- **CL-07**: Archivo con extensión .csv pero vacío (0 bytes) → se muestra
-  error en español.
+- **CL-07**: Archivo con extensión admitida (.csv, .json o .pdf) pero vacío
+  (0 bytes) → se muestra error en español.
 - **CL-08**: Archivo con nombre muy largo (>100 caracteres) → se trunca la
   visualización con puntos suspensivos.
 - **CL-09**: Archivo con caracteres especiales en el nombre → se muestra
   correctamente sin romper el diseño.
 - **CL-10**: Archivo con doble extensión (ej. datos.csv.txt) → se rechaza
-  por no terminar en .csv.
-- **CL-11**: Archivo con extensión en mayúsculas (.CSV) → se acepta como
-  válido.
+  por no terminar en .csv, .json ni .pdf.
+- **CL-11**: Archivo con extensión en mayúsculas (.CSV, .JSON, .PDF) → se
+  acepta como válido.
 - **CL-12**: Zoom del navegador al 200% → el contenido sigue siendo usable.
 - **CL-13**: El usuario arrastra y suelta un archivo → no está soportado en
   este nivel; solo se usa el botón.
@@ -194,8 +196,8 @@ navegador, se cumplan TODAS:
 3. Las 4 tarjetas muestran métricas de ejemplo con etiqueta visible "datos de
    ejemplo" (RF-03).
 4. El botón abre el selector, muestra nombre y tamaño, valida la extensión
-   .csv (insensible a mayúsculas) y rechaza archivos vacíos sin enviar el
-   archivo (RF-04).
+   .csv, .json o .pdf (insensible a mayúsculas) y rechaza archivos vacíos
+   sin enviar el archivo (RF-04).
 5. El área de gráficos muestra su placeholder con texto (RF-05).
 6. La página es usable en móvil (<768px), tablet (768-1023px) y escritorio
    (≥1024px) sin scroll horizontal (RF-06).

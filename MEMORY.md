@@ -2,10 +2,10 @@
 
 ## Estado actual
 
-- **Nivel**: 0 (entorno de desarrollo local)
-- **Fase**: Estructura inicial + skills del agente configuradas
+- **Nivel**: 1 (interfaz frontend — spec 002 implementada, verificación manual pendiente)
+- **Fase**: Implementación de la interfaz del nivel 1
 - **Versión**: 1.1.0
-- **Última actualización**: 2026-09-30
+- **Última actualización**: 2026-10-02
 
 ## Decisiones técnicas
 
@@ -59,3 +59,8 @@
 - Regla añadida a AGENTS.md: actualizar CHANGELOG.md con cada commit o versionado
 - Regla: no hacer commit ni push a GitHub sin preguntar antes al usuario (movida a AGENTS.md como regla permanente)
 - Fix 2026-10-02: `install:all` ahora crea `backend/venv` y usa `./venv/bin/pip`; `dev:backend` usa `./venv/bin/uvicorn` (PEP 668 bloqueaba pip global y el venv no existía al clonar)
+- Spec 002 implementada (2026-10-02): creados `app/assets/css/main.css`, `app/pages/index.vue`, `app/components/` (AppHeader, MetricCard, FileUploader, ChartPlaceholder), `app/layouts/default.vue`, `app/utils/validacion.js`, `docs/conceptos-nivel-1.md`; `app.vue` ahora renderiza `<NuxtLayout>`+`<NuxtPage>` y `nuxt.config.ts` carga el CSS global
+- Nuxt 4 usa `frontend/app/` como srcDir: `plan.md` corregido con las rutas `frontend/app/...`
+- Verificado sin navegador: SSR completo, T5 en Node (validarExtension/formatearTamano/truncarNombre), RF-07/CL-06 (HTML idéntico con backend caído), 0 referencias a :8000, breakpoints 768/1024 en CSS
+- **Pendiente**: verificación manual en navegador (consola, selector de archivos, scroll/sticky, 375/800/1280px, zoom 200%, recarga) → tareas 1, 3, 5, 6, 8 y 10 de `specs/002-interfaz-frontend/tasks.md` sin marcar
+- Ampliación pedida por el usuario (2026-10-02): el nivel 1 acepta `.json` y `.pdf` además de `.csv` → actualizados spec (RF-04, CL-01/07/10/11, criterio 4), plan, tasks, `validarExtension` (lista cerrada `EXTENSIONES_PERMITIDAS = [csv, json, pdf]`), `FileUploader` (accept dinámico, mensajes y botón) y textos de `index.vue`/conceptos
