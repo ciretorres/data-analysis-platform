@@ -14,8 +14,12 @@ const acceptFormatos = formatos.flatMap((formato) => [formato, formato.toUpperCa
 const archivo = ref(null) // { nombre, tamano } | null
 const error = ref('') // mensaje en español; vacío si no hay error
 
+// Ref de plantilla al input (RF-08): sin id fijos, la pieza puede instanciarse
+// varias veces en la misma página sin pisarse.
+const inputArchivo = ref(null)
+
 function abrirSelector() {
-  document.getElementById('selector-archivo')?.click()
+  inputArchivo.value?.click()
 }
 
 function alElegirArchivo(evento) {
@@ -52,12 +56,15 @@ function alElegirArchivo(evento) {
 <template>
   <div class="cargador">
     <!-- Selector del sistema. El input está oculto y lo abre el botón.
-         Sin atributo multiple: selección de un solo archivo. -->
+         Sin atributo multiple: selección de un solo archivo.
+         Se referencia por ref (no por id) para que el componente sea
+         reutilizable si se usa más de una vez (RF-08). -->
     <input
-      id="selector-archivo"
+      ref="inputArchivo"
       class="visually-hidden"
       type="file"
       :accept="acceptFormatos"
+      :aria-label="`Elegir archivo (${formatosTexto})`"
       @change="alElegirArchivo"
     />
 
