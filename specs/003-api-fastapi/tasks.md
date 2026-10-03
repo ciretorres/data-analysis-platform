@@ -26,7 +26,7 @@
   - RF: RF-01 … RF-08 (los 8), RNF-02, RNF-03, RNF-04
   - Hecho cuando: los 13 criterios de finalización de la spec se cumplen a mano con `curl` y la documentación automática.
 
-- [ ] **7. Cierre del nivel** — `MEMORY.md` + `CHANGELOG.md`
+- [x] **7. Cierre del nivel** — `MEMORY.md` + `CHANGELOG.md`
   - RF: RF-01 … RF-08 (los 8)
   - Hecho cuando: `MEMORY.md` refleja el estado del nivel 2, el `CHANGELOG.md` tiene las entradas de los commits (con hash corto, categoría y enlace) y `git status` está limpio.
 
