@@ -9,10 +9,14 @@
 
 ### 🐛 Bug Fixes
 
+- fix: usar ref de plantilla en FileUploader para que la pieza sea reutilizable [`90eefd3`](https://github.com/ciretorres/data-analysis-platform/commit/90eefd3)
 - fix: crear el venv del backend en install:all y usar rutas directas en dev:backend [`8b88245`](https://github.com/ciretorres/data-analysis-platform/commit/8b88245)
 
 ### 📦 Other Changes
 
+- chore: añadir los agentes de OpenCode para el flujo multiagente [`331ea4c`](https://github.com/ciretorres/data-analysis-platform/commit/331ea4c)
+- docs: ampliar los conceptos de FastAPI y Uvicorn y unificarlos en docs/ [`d86f202`](https://github.com/ciretorres/data-analysis-platform/commit/d86f202)
+- docs: cerrar la spec 002 con la verificación manual completada [`41cbcac`](https://github.com/ciretorres/data-analysis-platform/commit/41cbcac)
 - docs: ampliar la spec 002 a .json y .pdf y registrar el avance [`d4a2fbf`](https://github.com/ciretorres/data-analysis-platform/commit/d4a2fbf)
 - docs: añadir la documentación de conceptos del nivel 1 [`ff08fac`](https://github.com/ciretorres/data-analysis-platform/commit/ff08fac)
 - docs: documentar el requisito de python3.12-venv y los atajos de scripts [`cf22a90`](https://github.com/ciretorres/data-analysis-platform/commit/cf22a90)
