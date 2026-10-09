@@ -4,14 +4,26 @@
 
 ### ✨ Features
 
+- feat: ampliar /health y montar el router de datasets [`bbe9227`](https://github.com/ciretorres/data-analysis-platform/commit/bbe9227)
+- feat: añadir router CRUD de datasets con lista en memoria [`58af64c`](https://github.com/ciretorres/data-analysis-platform/commit/58af64c)
+- feat: añadir modelos Pydantic de Dataset [`abb1baf`](https://github.com/ciretorres/data-analysis-platform/commit/abb1baf)
+- feat: añadir la interfaz del nivel 1 con componentes reutilizables [`0717693`](https://github.com/ciretorres/data-analysis-platform/commit/0717693)
 - feat: añadir la página de bienvenida del nivel 0 al frontend [`ee07c9e`](https://github.com/ciretorres/data-analysis-platform/commit/ee07c9e)
 
 ### 🐛 Bug Fixes
 
+- fix: usar ref de plantilla en FileUploader para que la pieza sea reutilizable [`90eefd3`](https://github.com/ciretorres/data-analysis-platform/commit/90eefd3)
 - fix: crear el venv del backend en install:all y usar rutas directas en dev:backend [`8b88245`](https://github.com/ciretorres/data-analysis-platform/commit/8b88245)
 
 ### 📦 Other Changes
 
+- docs: añadir spec, plan y tasks del nivel 2 [`e4133d7`](https://github.com/ciretorres/data-analysis-platform/commit/e4133d7)
+- docs: documentar los conceptos del nivel 2 [`f647824`](https://github.com/ciretorres/data-analysis-platform/commit/f647824)
+- chore: añadir los agentes de OpenCode para el flujo multiagente [`331ea4c`](https://github.com/ciretorres/data-analysis-platform/commit/331ea4c)
+- docs: ampliar los conceptos de FastAPI y Uvicorn y unificarlos en docs/ [`d86f202`](https://github.com/ciretorres/data-analysis-platform/commit/d86f202)
+- docs: cerrar la spec 002 con la verificación manual completada [`41cbcac`](https://github.com/ciretorres/data-analysis-platform/commit/41cbcac)
+- docs: ampliar la spec 002 a .json y .pdf y registrar el avance [`d4a2fbf`](https://github.com/ciretorres/data-analysis-platform/commit/d4a2fbf)
+- docs: añadir la documentación de conceptos del nivel 1 [`ff08fac`](https://github.com/ciretorres/data-analysis-platform/commit/ff08fac)
 - docs: documentar el requisito de python3.12-venv y los atajos de scripts [`cf22a90`](https://github.com/ciretorres/data-analysis-platform/commit/cf22a90)
 - chore: limpiar paquetes extraneous del lockfile del frontend [`94cf697`](https://github.com/ciretorres/data-analysis-platform/commit/94cf697)
 - docs: registrar el fix de scripts en MEMORY.md [`2e6361a`](https://github.com/ciretorres/data-analysis-platform/commit/2e6361a)

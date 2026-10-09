@@ -5,4 +5,6 @@ export default defineNuxtConfig({
   devServer: {
     port: 3000,
   },
+  // CSS global compartido por todos los componentes (RF-08)
+  css: ['~/assets/css/main.css'],
 })

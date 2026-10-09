@@ -1,0 +1,113 @@
+/* Estilos globales del nivel 1.
+   CSS vanilla: sin frameworks ni CDNs (RNF-03). Compartido por todos los
+   componentes (RF-08). */
+
+:root {
+  --color-fondo: #020420;
+  --color-superficie: rgba(255, 255, 255, 0.05);
+  --color-borde: rgba(255, 255, 255, 0.12);
+  --color-texto: #f1f5f9;
+  --color-texto-tenue: #94a3b8;
+  --color-acento: #00dc82;
+  --color-error: #f87171;
+  --color-ok: #00dc82;
+  --ancho-maximo: 1200px;
+  --cabecera-alta: 4rem;
+}
+
+/* El anclado del menú deja espacio para la cabecera sticky (RF-02) */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--cabecera-alta) + 1rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* Contenido centrado con ancho máximo de 1200px (RF-06) */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-maximo);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.seccion {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.seccion:last-child {
+  border-bottom: none;
+}
+
+.seccion__intro {
+  color: var(--color-texto-tenue);
+  max-width: 60ch;
+}
+
+/* Botón común (se usa en el cargador de archivos) */
+.boton {
+  display: inline-block;
+  border: 1px solid var(--color-acento);
+  background-color: var(--color-acento);
+  color: #020420;
+  font: inherit;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.boton:hover {
+  filter: brightness(1.08);
+}
+
+/* Foco visible para navegación por teclado */
+:focus-visible {
+  outline: 2px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* Contenido disponible solo para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Respeta la preferencia de movimiento reducido del sistema */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
