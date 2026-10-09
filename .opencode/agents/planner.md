@@ -68,7 +68,7 @@ Genera `tasks.md` cumpliendo estas condiciones:
 
 Actualiza primero `spec.md` incluyendo:
 
-- El nuevo requisito funcional en formato EARS.
+- El nuevo requisito funcional en formato Easy Approach to Requirements Syntax o EARS.
 - Los casos límite.
 
 Después, devuelve el diff.
