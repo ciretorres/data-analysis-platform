@@ -1,4 +1,7 @@
-<script setup>
+<script setup lang="ts">
+import { onMounted } from 'vue'
+import { useApi } from '~/composables/useApi'
+
 // Métricas estáticas de ejemplo (RF-03): no vienen de ningún servidor (RF-07)
 const metricas = [
   { id: 'archivos', titulo: 'Archivos cargados', valor: '3' },
@@ -6,6 +9,23 @@ const metricas = [
   { id: 'columnas', titulo: 'Columnas detectadas', valor: '12' },
   { id: 'tiempo', titulo: 'Tiempo de carga (ms)', valor: '320' },
 ]
+
+// Estado de la API (RF-05): petición real al backend
+interface EstadoApi {
+  app_name: string
+  status: string
+  version: string
+  response_date: string
+}
+
+const { datos, cargando, error, pedir } = useApi<EstadoApi>('http://localhost:8000/api/health')
+
+const { datos: datosE, cargando: cargandoE, error: errorE, pedir: pedirE } = useApi<EstadoApi>('error')
+
+onMounted(() => {
+  pedir()
+  pedirE()
+})
 </script>
 
 <template>
@@ -64,6 +84,57 @@ const metricas = [
       <h2>Gráficos</h2>
       <ChartPlaceholder />
     </section>
+
+    <!-- Nivel 3: estado de la API (RF-05) -->
+    <section id="estado-api" class="seccion">
+      <h2>Estado de la API</h2>
+      <p class="seccion__intro">
+        Esta sección hace una petición real al backend y muestra su respuesta.
+      </p>
+
+      <!-- Estado de carga -->
+      <p v-if="cargando" class="estado-api estado-api--cargando">
+        Cargando estado de la API…
+      </p>
+
+      <!-- Error -->
+      <p v-else-if="error" class="estado-api estado-api--error">
+        {{ error }}
+      </p>
+
+      <!-- Datos -->
+      <div v-else-if="datos" class="estado-api__datos">
+        <p><strong>Aplicación:</strong> {{ datos.app_name }}</p>
+        <p><strong>Estado:</strong> {{ datos.status }}</p>
+        <p><strong>Versión:</strong> {{ datos.version }}</p>
+        <p><strong>Fecha de respuesta:</strong> {{ datos.response_date }}</p>
+      </div>
+    </section>
+
+    <section id="estado-api-error" class="seccion">
+      <h2>Estado de la API con error</h2>
+      <p class="seccion__intro">
+        Esta sección hace una petición real al backend y muestra su respuesta.
+      </p>
+
+      <!-- Estado de carga -->
+      <p v-if="cargandoE" class="estado-api estado-api--cargando">
+        Cargando estado de la API…
+      </p>
+
+      <!-- Error -->
+      <p v-else-if="errorE" class="estado-api estado-api--error">
+        {{ errorE }}
+      </p>
+
+      <!-- Datos -->
+      <div v-else-if="datosE" class="estado-api__datos">
+        <p><strong>Aplicación:</strong> {{ datosE.app_name }}</p>
+        <p><strong>Estado:</strong> {{ datosE.status }}</p>
+        <p><strong>Versión:</strong> {{ datosE.version }}</p>
+        <p><strong>Fecha de respuesta:</strong> {{ datosE.response_date }}</p>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -109,5 +180,27 @@ const metricas = [
   .metricas {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+
+/* Nivel 3: estilos de la sección "Estado de la API" */
+.estado-api {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-borde);
+}
+
+.estado-api--cargando {
+  color: var(--color-texto-tenue);
+  font-style: italic;
+}
+
+.estado-api--error {
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.3);
+  background-color: rgba(248, 113, 113, 0.05);
+}
+
+.estado-api__datos p {
+  margin: 0.25rem 0;
 }
 </style>
