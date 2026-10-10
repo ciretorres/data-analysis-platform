@@ -9,6 +9,7 @@
         <li><a href="#carga-archivo">Carga de archivo</a></li>
         <li><a href="#graficos">Gráficos</a></li>
         <li><a href="#estado-api">Estado de la API</a></li>
+        <li><a href="#gestion-datasets">Gestión de datasets</a></li>
       </ul>
     </nav>
   </header>

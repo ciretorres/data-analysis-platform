@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useApi } from '~/composables/useApi'
+import { useDatasets } from '~/composables/useDatasets'
+import type { Dataset } from '~/composables/useDatasets'
+import DatasetList from '~/components/DatasetList.vue'
+import DatasetForm from '~/components/DatasetForm.vue'
 
 // Métricas estáticas de ejemplo (RF-03): no vienen de ningún servidor (RF-07)
 const metricas = [
@@ -19,13 +23,97 @@ interface EstadoApi {
 }
 
 const { datos, cargando, error, pedir } = useApi<EstadoApi>('http://localhost:8000/api/health')
-
 const { datos: datosE, cargando: cargandoE, error: errorE, pedir: pedirE } = useApi<EstadoApi>('error')
+
+// Nivel 4: gestión de datasets (RF-01, RF-06..RF-10)
+const {
+  datasets,
+  loading,
+  error: errorDatasets,
+  obtenerDatasets,
+  crearDataset,
+  actualizarDataset,
+  eliminarDataset,
+} = useDatasets()
+
+const mostrarModal = ref(false)
+const modoModal = ref<'crear' | 'editar'>('crear')
+const datasetEditando = ref<Dataset | null>(null)
+const mensaje = ref<{ tipo: 'exito' | 'error'; texto: string } | null>(null)
+const enviando = ref(false)
+
+let temporizadorMensaje: ReturnType<typeof setTimeout> | undefined
 
 onMounted(() => {
   pedir()
   pedirE()
+  obtenerDatasets()
 })
+
+function mostrarMensaje(tipo: 'exito' | 'error', texto: string) {
+  mensaje.value = { tipo, texto }
+
+  clearTimeout(temporizadorMensaje)
+  
+  temporizadorMensaje = setTimeout(() => {
+    mensaje.value = null
+  }, 3000)
+}
+
+function abrirCrear() {
+  modoModal.value = 'crear'
+  datasetEditando.value = null
+  mostrarModal.value = true
+}
+
+function abrirEditar(dataset: Dataset) {
+  modoModal.value = 'editar'
+  datasetEditando.value = dataset
+  mostrarModal.value = true
+}
+
+async function alGuardar(datos: { name: string; description: string | null; file_name: string }) {
+  enviando.value = true
+
+  try {
+    if (modoModal.value === 'crear') {
+      await crearDataset(datos)
+
+      mostrarMensaje('exito', 'Dataset creado correctamente.')
+    } else if (datasetEditando.value) {
+      await actualizarDataset(datasetEditando.value.id, {
+        ...datos,
+        created_at: datasetEditando.value.created_at,
+      })
+      
+      mostrarMensaje('exito', 'Dataset actualizado correctamente.')
+    }
+    
+    mostrarModal.value = false
+  } catch {
+    mostrarMensaje('error', 'No se pudo guardar el dataset. Inténtalo de nuevo.')
+  } finally {
+    enviando.value = false
+  }
+}
+
+async function alEliminar(id: number) {
+  enviando.value = true
+
+  try {
+    await eliminarDataset(id)
+  
+    mostrarMensaje('exito', 'Dataset eliminado correctamente.')
+  } catch {
+    mostrarMensaje('error', 'No se pudo eliminar el dataset. Inténtalo de nuevo.')
+  } finally {
+    enviando.value = false
+  }
+}
+
+function alCancelar() {
+  mostrarModal.value = false
+}
 </script>
 
 <template>
@@ -135,6 +223,51 @@ onMounted(() => {
         <p><strong>Fecha de respuesta:</strong> {{ datosE.response_date }}</p>
       </div>
     </section>
+
+    <!-- Nivel 4: gestión de datasets (RF-06..RF-10) -->
+    <section id="gestion-datasets" class="seccion">
+      <h2>Gestión de datasets</h2>
+      <p class="seccion__intro">
+        Lista, crea, edita y elimina conjuntos de datos.
+      </p>
+
+      <button @click="abrirCrear">Nuevo dataset</button>
+
+      <!-- Mensajes de éxito/error (RF-10) -->
+      <p v-if="mensaje" class="mensaje" :class="`mensaje--${mensaje.tipo}`">
+        {{ mensaje.texto }}
+      </p>
+
+      <DatasetList
+        :datasets="datasets"
+        :loading="loading"
+        :error="errorDatasets"
+        @editar="abrirEditar"
+        @eliminar="alEliminar"
+        @reintentar="obtenerDatasets"
+      />
+    </section>
+  </div>
+
+  <!-- Modal de crear/editar (RF-07, RF-08) -->
+  <div v-if="mostrarModal" class="modal-overlay" @click.self="alCancelar">
+    <div 
+      class="modal" 
+      role="dialog" 
+      aria-modal="true" 
+      :aria-labelledby="`modal-${modoModal}`"
+      >
+      <h3 :id="`modal-${modoModal}`">
+        {{ modoModal === 'crear' ? 'Nuevo dataset' : 'Editar dataset' }}
+      </h3>
+
+      <DatasetForm
+        :modo="modoModal"
+        :dataset="datasetEditando ?? undefined"
+        @guardar="alGuardar"
+        @cancelar="alCancelar"
+      />
+    </div>
   </div>
 </template>
 
@@ -202,5 +335,48 @@ onMounted(() => {
 
 .estado-api__datos p {
   margin: 0.25rem 0;
+}
+
+/* Nivel 4: estilos de la sección "Gestión de datasets" */
+.mensaje {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.mensaje--exito {
+  border: 1px solid rgba(0, 220, 130, 0.3);
+  background-color: rgba(0, 220, 130, 0.1);
+  color: var(--color-acento);
+}
+
+.mensaje--error {
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background-color: rgba(248, 113, 113, 0.05);
+  color: #f87171;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+}
+
+.modal {
+  width: 100%;
+  max-width: 32rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+}
+
+.modal h3 {
+  margin-top: 0;
 }
 </style>
