@@ -2,10 +2,10 @@
 
 ## Estado actual
 
-- **Nivel**: 2 completado (spec 003 implementada y verificada manualmente)
-- **Fase**: Cierre del nivel 2 — siguiente: nivel 3
+- **Nivel**: 4 implementado (spec 005 — gestión de datos desde el frontend)
+- **Fase**: Cierre del nivel 4 — verificación manual completada
 - **Versión**: 1.1.0
-- **Última actualización**: 2026-10-03
+- **Última actualización**: 2026-10-09
 
 ## Decisiones técnicas
 
@@ -73,3 +73,8 @@
 - El agente `coordinator` no puede usarse (error de proveedor free tier) → el agente principal redacta la spec directamente; el flujo SDD continúa con clarificación QA y plan/tareas
 - Spec 003 implementada (2026-10-03): creados `backend/app/models/dataset.py` (DatasetCreate, DatasetUpdate, Dataset), `backend/app/routers/datasets.py` (5 endpoints CRUD con lista en memoria), `docs/conceptos-nivel-2.md` (15 conceptos); `backend/app/main.py` actualizado (versión 1.0.0, `/health` ampliado, router montado)
 - Verificación manual completada (2026-10-03): 13/13 criterios PASS con curl + /docs, 17/17 CL PASS → **spec 003 cerrada, 7/7 tareas** en `specs/003-api-fastapi/tasks.md`
+- Spec 005 (nivel 4) redactada (2026-10-08) en `specs/005-gestion-datos-frontend/spec.md`: CRUD de datasets desde el frontend (11 RF, 6 RNF, 20 CL, 13 criterios); solo frontend, sin tests automatizados (verificación manual con navegador)
+- Plan de spec 005 creado en `specs/005-gestion-datos-frontend/plan.md` (9 tareas en orden de dependencia, decisiones técnicas, cobertura de RFs)
+- Tasks de spec 005 creadas en `specs/005-gestion-datos-frontend/tasks.md` (9 tareas)
+- Spec 005 implementada (2026-10-09): creados `frontend/app/composables/useDatasets.ts` (T1, CRUD con useApi+fetch), `frontend/app/components/LoadingState.vue` + `ErrorMessage.vue` (T2, reutilizables), `DatasetCard.vue` (T3, tarjeta con editar/eliminar+confirmación), `DatasetForm.vue` (T4, formulario controlado con validación), `DatasetList.vue` (T5, lista con estados), `frontend/app/pages/index.vue` actualizado (T6, sección "Gestión de datasets" con modal, mensajes 3s, CRUD completo), `frontend/app/components/AppHeader.vue` actualizado (T7, enlace en menú), `docs/conceptos-nivel-4.md` (T8, 9 conceptos explicados)
+- Verificación manual completada (2026-10-09): build de Nuxt sin errores, endpoints CRUD verificados con curl (GET/POST/PUT/DELETE), 13/13 criterios PASS → **spec 005 cerrada, 9/9 tareas** en `specs/005-gestion-datos-frontend/tasks.md`

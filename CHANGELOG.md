@@ -4,6 +4,12 @@
 
 ### ✨ Features
 
+- feat: añadir composable useDatasets con CRUD completo de datasets (pendiente de commit)
+- feat: añadir componentes DatasetList, DatasetCard, DatasetForm, LoadingState y ErrorMessage (pendiente de commit)
+- feat: integrar sección "Gestión de datasets" en index.vue con modal, mensajes y confirmación (pendiente de commit)
+- feat: añadir enlace "Gestión de datasets" en el menú de navegación (pendiente de commit)
+- feat: añadir endpoint /api/health y CORS [`4dfde0c`](https://github.com/ciretorres/data-analysis-platform/commit/4dfde0c)
+- feat: añadir composable useApi y sección Estado de la API [`a2f127c`](https://github.com/ciretorres/data-analysis-platform/commit/a2f127c)
 - feat: ampliar /health y montar el router de datasets [`bbe9227`](https://github.com/ciretorres/data-analysis-platform/commit/bbe9227)
 - feat: añadir router CRUD de datasets con lista en memoria [`58af64c`](https://github.com/ciretorres/data-analysis-platform/commit/58af64c)
 - feat: añadir modelos Pydantic de Dataset [`abb1baf`](https://github.com/ciretorres/data-analysis-platform/commit/abb1baf)
@@ -17,6 +23,10 @@
 
 ### 📦 Other Changes
 
+- docs: añadir spec, plan y tasks del nivel 4 (pendiente de commit)
+- docs: documentar los conceptos del nivel 4 (pendiente de commit)
+- docs: actualizar MEMORY.md con el cierre del nivel 4 (pendiente de commit)
+- docs: añadir conceptos y spec del nivel 3 [`9842981`](https://github.com/ciretorres/data-analysis-platform/commit/9842981)
 - docs: añadir spec, plan y tasks del nivel 2 [`e4133d7`](https://github.com/ciretorres/data-analysis-platform/commit/e4133d7)
 - docs: documentar los conceptos del nivel 2 [`f647824`](https://github.com/ciretorres/data-analysis-platform/commit/f647824)
 - chore: añadir los agentes de OpenCode para el flujo multiagente [`331ea4c`](https://github.com/ciretorres/data-analysis-platform/commit/331ea4c)
