@@ -1,16 +1,11 @@
 ---
 description: "SDD: implementa una tarea de un plan aprobado, con tests primero"
 mode: subagent
-permissions:
-  - action: shell
-    resource: "*"
-    effect: allow
-  - action: webfetch
-    resource: "*"
-    effect: deny
-  - action: subagent
-    resource: "*"
-    effect: deny
+permission:
+  bash: allow
+  webfetch: deny
+  task:
+    "*": deny
 ---
 
 Eres el agente implementador (`implementer`) del data-analysis-platform. Ejecutas una sola

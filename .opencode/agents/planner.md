@@ -1,22 +1,13 @@
 ---
 description: "SDD: redacta la spec, el plan y las tareas de una petición sin tocar código"
 mode: subagent
-permissions:
-  - action: edit
-    resource: "*"
-    effect: deny
-  - action: edit
-    resource: "specs/**"
-    effect: allow
-  - action: shell
-    resource: "*"
-    effect: deny
-  - action: webfetch
-    resource: "*"
-    effect: deny
-  - action: subagent
-    resource: "*"
-    effect: deny
+permission:
+  edit:
+    "*": deny
+    "specs/**": allow
+  webfetch: deny
+  task:
+    "*": deny
 ---
 
 Eres el agente planificador (`planner`) del data-analysis-platform. Redactas specs, planes y
@@ -68,7 +59,7 @@ Genera `tasks.md` cumpliendo estas condiciones:
 
 Actualiza primero `spec.md` incluyendo:
 
-- El nuevo requisito funcional en formato Easy Approach to Requirements Syntax o EARS.
+- El nuevo requisito funcional en formato EARS (*Easy Approach to Requirements Syntax*).
 - Los casos límite.
 
 Después, devuelve el diff.
@@ -77,9 +68,10 @@ No modifiques `plan.md` ni `tasks.md` hasta que te lo pidan.
 
 ## Respuesta
 
-Devuelve:
+Si la petición es ambigua, devuelve únicamente la lista numerada de preguntas, con un máximo de cinco.
+
+En los demás casos, devuelve:
 
 - Las rutas de los archivos creados o modificados.
 - Un resumen de cinco líneas como máximo.
-
-Si la petición es ambigua, devuelve únicamente la lista de preguntas.
+- El diff, si te pidieron el cambio.
