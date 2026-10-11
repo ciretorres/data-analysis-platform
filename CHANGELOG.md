@@ -1,15 +1,30 @@
 # Changelog
 
-## [Unreleased](https://github.com/ciretorres/data-analysis-platform/compare/v1.0.0...HEAD)
+## [Unreleased](https://github.com/ciretorres/data-analysis-platform/compare/v1.2.0...HEAD)
 
 ### ✨ Features
 
-- feat: añadir composable useDatasets con CRUD completo de datasets (pendiente de commit)
-- feat: añadir componentes DatasetList, DatasetCard, DatasetForm, LoadingState y ErrorMessage (pendiente de commit)
-- feat: integrar sección "Gestión de datasets" en index.vue con modal, mensajes y confirmación (pendiente de commit)
-- feat: añadir enlace "Gestión de datasets" en el menú de navegación (pendiente de commit)
-- feat: añadir endpoint /api/health y CORS [`4dfde0c`](https://github.com/ciretorres/data-analysis-platform/commit/4dfde0c)
+- feat: añadir composable useDatasets con CRUD completo de datasets [`be3d6f9`](https://github.com/ciretorres/data-analysis-platform/commit/be3d6f9)
+- feat: añadir componentes DatasetList, DatasetCard, DatasetForm, LoadingState y ErrorMessage [`c9f8b36`](https://github.com/ciretorres/data-analysis-platform/commit/c9f8b36)
+- feat: integrar sección "Gestión de datasets" en index.vue con modal, mensajes y confirmación [`435ec85`](https://github.com/ciretorres/data-analysis-platform/commit/435ec85)
+- feat: añadir enlace "Gestión de datasets" en el menú de navegación [`435ec85`](https://github.com/ciretorres/data-analysis-platform/commit/435ec85)
+
+### 📦 Other Changes
+
+- chore: actualizar comando super-commit [`e332057`](https://github.com/ciretorres/data-analysis-platform/commit/e332057)
+- docs: actualizar constitución [`06bfd25`](https://github.com/ciretorres/data-analysis-platform/commit/06bfd25)
+- docs: añadir spec, plan y tasks del nivel 4 [`5d6a7c3`](https://github.com/ciretorres/data-analysis-platform/commit/5d6a7c3)
+- docs: documentar los conceptos del nivel 4 [`d700683`](https://github.com/ciretorres/data-analysis-platform/commit/d700683)
+- docs: actualizar MEMORY.md con el cierre del nivel 4 [`5f245c6`](https://github.com/ciretorres/data-analysis-platform/commit/5f245c6)
+- chore: actualizar agentes coordinator y planner [`a5edbc5`](https://github.com/ciretorres/data-analysis-platform/commit/a5edbc5)
+- docs: añadir conceptos y spec del nivel 3 [`9842981`](https://github.com/ciretorres/data-analysis-platform/commit/9842981)
+
+## [1.2.0](https://github.com/ciretorres/data-analysis-platform/releases/tag/v1.2.0) (2026-10-08)
+
+### ✨ Features
+
 - feat: añadir composable useApi y sección Estado de la API [`a2f127c`](https://github.com/ciretorres/data-analysis-platform/commit/a2f127c)
+- feat: añadir endpoint /api/health y CORS [`4dfde0c`](https://github.com/ciretorres/data-analysis-platform/commit/4dfde0c)
 - feat: ampliar /health y montar el router de datasets [`bbe9227`](https://github.com/ciretorres/data-analysis-platform/commit/bbe9227)
 - feat: añadir router CRUD de datasets con lista en memoria [`58af64c`](https://github.com/ciretorres/data-analysis-platform/commit/58af64c)
 - feat: añadir modelos Pydantic de Dataset [`abb1baf`](https://github.com/ciretorres/data-analysis-platform/commit/abb1baf)
@@ -23,12 +38,6 @@
 
 ### 📦 Other Changes
 
-- docs: añadir spec, plan y tasks del nivel 4 (pendiente de commit)
-- docs: documentar los conceptos del nivel 4 (pendiente de commit)
-- docs: actualizar MEMORY.md con el cierre del nivel 4 (pendiente de commit)
-- docs: añadir conceptos y spec del nivel 3 [`9842981`](https://github.com/ciretorres/data-analysis-platform/commit/9842981)
-- docs: añadir spec, plan y tasks del nivel 2 [`e4133d7`](https://github.com/ciretorres/data-analysis-platform/commit/e4133d7)
-- docs: documentar los conceptos del nivel 2 [`f647824`](https://github.com/ciretorres/data-analysis-platform/commit/f647824)
 - chore: añadir los agentes de OpenCode para el flujo multiagente [`331ea4c`](https://github.com/ciretorres/data-analysis-platform/commit/331ea4c)
 - docs: ampliar los conceptos de FastAPI y Uvicorn y unificarlos en docs/ [`d86f202`](https://github.com/ciretorres/data-analysis-platform/commit/d86f202)
 - docs: cerrar la spec 002 con la verificación manual completada [`41cbcac`](https://github.com/ciretorres/data-analysis-platform/commit/41cbcac)
@@ -54,6 +63,21 @@
 - chore: añadir comandos personalizados de OpenCode [`aa9c738`](https://github.com/ciretorres/data-analysis-platform/commit/aa9c738)
 - chore: configurar MCP context7 para documentación [`fc6c896`](https://github.com/ciretorres/data-analysis-platform/commit/fc6c896)
 - chore: instalar skills del agente a nivel de proyecto [`48d29fa`](https://github.com/ciretorres/data-analysis-platform/commit/48d29fa)
+
+## [1.1.0](https://github.com/ciretorres/data-analysis-platform/releases/tag/v1.1.0) (2026-10-02)
+
+### ✨ Features
+
+- feat: añadir la página de bienvenida del nivel 0 al frontend [`ee07c9e`](https://github.com/ciretorres/data-analysis-platform/commit/ee07c9e)
+
+### 📦 Other Changes
+
+- chore: añadir skill spec-driven-development y comandos ssd [`1d9553e`](https://github.com/ciretorres/data-analysis-platform/commit/1d9553e)
+- chore: añadir skill fastapi-python a nivel de proyecto [`520e2e9`](https://github.com/ciretorres/data-analysis-platform/commit/520e2e9)
+- chore: añadir comandos personalizados de OpenCode [`aa9c738`](https://github.com/ciretorres/data-analysis-platform/commit/aa9c738)
+- chore: configurar MCP context7 para documentación [`fc6c896`](https://github.com/ciretorres/data-analysis-platform/commit/fc6c896)
+- docs: reorganizar AGENTS.md con spec primero y límites del nivel 1 [`7c3a835`](https://github.com/ciretorres/data-analysis-platform/commit/7c3a835)
+- docs: añadir specs de los niveles 0 y 1 [`12ede70`](https://github.com/ciretorres/data-analysis-platform/commit/12ede70)
 
 ## [1.0.0](https://github.com/ciretorres/data-analysis-platform/releases/tag/v1.0.0) (2026-09-30)
 
