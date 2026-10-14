@@ -5,6 +5,7 @@ import { useDatasets } from '~/composables/useDatasets'
 import type { Dataset } from '~/composables/useDatasets'
 import DatasetList from '~/components/DatasetList.vue'
 import DatasetForm from '~/components/DatasetForm.vue'
+import FileUpload from '~/components/FileUpload.vue'
 
 // Métricas estáticas de ejemplo (RF-03): no vienen de ningún servidor (RF-07)
 const metricas = [
@@ -247,6 +248,9 @@ function alCancelar() {
         @reintentar="obtenerDatasets"
       />
     </section>
+
+    <!-- Nivel 5: procesar archivo (RF-02..RF-10) -->
+    <FileUpload />
   </div>
 
   <!-- Modal de crear/editar (RF-07, RF-08) -->

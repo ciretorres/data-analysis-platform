@@ -10,6 +10,7 @@
         <li><a href="#graficos">Gráficos</a></li>
         <li><a href="#estado-api">Estado de la API</a></li>
         <li><a href="#gestion-datasets">Gestión de datasets</a></li>
+        <li><a href="#procesar-archivo">Procesar archivo</a></li>
       </ul>
     </nav>
   </header>
