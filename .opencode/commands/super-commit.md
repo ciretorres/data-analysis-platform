@@ -2,7 +2,7 @@
 description: Agrupa cambios en commits semánticos, actualiza el changelog y ofrece hacer push
 ---
 
-Agrupa los cambios actuales en commits semánticos, actualiza `CHANGELOG.md` después de crear los commits y ofrece hacer push de la rama actual.
+Agrupa los cambios actuales en commits semánticos, actualiza `CHANGELOG.md` después de crear los commits y nunca ofrezcas hacer push.
 
 Contexto opcional para los mensajes de commit: `$ARGUMENTS`
 
@@ -102,6 +102,4 @@ Flujo:
     - `git status --short`
     - `git log --oneline -10`
 
-12. Pregúntame si quiero ejecutar `git push` o hacerlo manualmente. No hagas push sin mi confirmación.
-
-13. Al terminar, resume los commits creados, indica si se detectó un tag nuevo o un cambio de versión y, si se hizo push, especifica la rama enviada.
+12. Al terminar, resume los commits creados, indica si se detectó un tag nuevo o un cambio de versión y, si se hizo push, especifica la rama enviada.
