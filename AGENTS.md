@@ -20,17 +20,34 @@ Proyecto educativo en desarrollo progresivo por niveles de aprendizaje.
 data-analysis-platform/
 ├── specs/                  # Especificaciones por nivel (spec primero)
 │   ├── 001-preparacion-entorno/
-│   └── 002-interfaz-frontend/
+│   ├── 002-interfaz-frontend/
+│   ├── 003-api-fastapi/
+│   ├── 004-conexion-frontend-backend/
+│   ├── 005-gestion-datos-frontend/
+│   └── 006-procesar-csv-json-pandas/
 ├── frontend/               # Aplicación Nuxt (cliente)
 │   ├── app/
-│   │   └── app.vue         # Componente raíz
+│   │   ├── components/     # Componentes Vue (AppHeader, DatasetList, FileUpload, etc.)
+│   │   ├── composables/    # Composables (useApi, useDatasets, useUpload)
+│   │   ├── pages/          # Páginas (index.vue)
+│   │   └── layouts/        # Layouts (default.vue)
 │   ├── nuxt.config.ts      # Configuración de Nuxt
 │   └── package.json        # Dependencias del frontend
 ├── backend/                # API FastAPI (servidor)
 │   ├── app/
-│   │   └── main.py         # Aplicación FastAPI
+│   │   ├── main.py         # Aplicación FastAPI
+│   │   ├── models/         # Modelos Pydantic (dataset.py)
+│   │   └── routers/        # Routers (datasets.py, upload.py)
 │   ├── requirements.txt    # Dependencias Python
 │   └── venv/               # Entorno virtual (no subir a Git)
+├── docs/                   # Documentación de conceptos por nivel
+│   ├── constitución.md     # 6 principios innegociables
+│   ├── conceptos-nivel-0.md
+│   ├── conceptos-nivel-1.md
+│   ├── conceptos-nivel-2.md
+│   ├── conceptos-nivel-3.md
+│   ├── conceptos-nivel-4.md
+│   └── conceptos-nivel-5.md
 ├── .agents/skills/         # Skills del agente (fastapi, nuxt, accessibility, seo, find-skills)
 ├── .opencode/              # Comandos y configuración de OpenCode
 ├── docker-compose.yml      # Docker (solo futuras etapas)
@@ -66,7 +83,14 @@ npm run dev
 |--------|------|-------------|
 | GET | / | Mensaje de bienvenida |
 | GET | /health | Estado del servidor |
+| GET | /api/health | Estado de la API (con app_name, version, response_date) |
 | GET | /docs | Documentación Swagger |
+| GET | /api/datasets | Lista todos los datasets |
+| GET | /api/datasets/{id} | Obtiene un dataset |
+| POST | /api/datasets | Crea un dataset |
+| PUT | /api/datasets/{id} | Actualiza un dataset (reemplazo completo) |
+| DELETE | /api/datasets/{id} | Elimina un dataset |
+| POST | /api/datasets/upload | Sube un archivo CSV/JSON y devuelve un resumen con Pandas |
 
 ## Variables de entorno
 
@@ -119,13 +143,19 @@ Reglas de uso:
 - Mantén breve (máximo ~50 líneas): resume o elimina lo que no aporte.
 - No guardes nunca datos sensibles (claves, tokens, datos personales).
 
-## Límites del nivel 1
+## Niveles completados
 
-- NO conectar frontend con backend
-- NO procesar archivos CSV (solo selección y validación visual)
-- NO enviar el archivo a ningún servidor
-- NO usar librerías de gráficos (placeholder con texto)
-- NO tests automatizados (este nivel se verifica manualmente)
+| Nivel | Spec | Estado | Descripción |
+|-------|------|--------|-------------|
+| 0 | 001 | ✅ Completado | Preparación del entorno |
+| 1 | 002 | ✅ Completado | Interfaz frontend estática |
+| 2 | 003 | ✅ Completado | Backend FastAPI con CRUD de datasets |
+| 3 | 004 | ✅ Completado | Conexión frontend-backend (CORS, useApi) |
+| 4 | 005 | ✅ Completado | Gestión de datos desde el frontend (CRUD) |
+| 5 | 006 | ✅ Completado | Procesar CSV/JSON con Pandas |
+
+## Límites generales
+
 - NO usar bases de datos
 - NO añadir autenticación
 - NO usar Docker
@@ -141,3 +171,13 @@ Antes de dar por terminado cualquier cambio:
 3. Documentación API disponible en http://localhost:8000/docs
 4. `git status` limpio (sin cambios sin commitear)
 5. MCP conectado *(solo si cambió `opencode.json`)*: desde la raíz, `opencode mcp list` → `✓ context7 connected`
+
+## Dependencias del backend
+
+| Paquete | Versión | Nivel |
+|---------|---------|-------|
+| fastapi | ≥0.100 | 2 |
+| uvicorn | ≥0.20 | 2 |
+| pydantic | ≥2.0 | 2 |
+| pandas | ≥2.1 | 5 |
+| python-multipart | ≥0.0.9 | 5 |

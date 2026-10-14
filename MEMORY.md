@@ -2,10 +2,10 @@
 
 ## Estado actual
 
-- **Nivel**: 4 implementado (spec 005 — gestión de datos desde el frontend)
-- **Fase**: Cierre del nivel 4 — verificación manual completada
-- **Versión**: 1.1.0
-- **Última actualización**: 2026-10-09
+- **Nivel**: 5 implementado (spec 006 — procesar CSV/JSON con Pandas)
+- **Fase**: Cierre del nivel 5 — verificación manual completada
+- **Versión**: 1.2.0
+- **Última actualización**: 2026-10-10
 
 ## Decisiones técnicas
 
@@ -78,3 +78,6 @@
 - Tasks de spec 005 creadas en `specs/005-gestion-datos-frontend/tasks.md` (9 tareas)
 - Spec 005 implementada (2026-10-09): creados `frontend/app/composables/useDatasets.ts` (T1, CRUD con useApi+fetch), `frontend/app/components/LoadingState.vue` + `ErrorMessage.vue` (T2, reutilizables), `DatasetCard.vue` (T3, tarjeta con editar/eliminar+confirmación), `DatasetForm.vue` (T4, formulario controlado con validación), `DatasetList.vue` (T5, lista con estados), `frontend/app/pages/index.vue` actualizado (T6, sección "Gestión de datasets" con modal, mensajes 3s, CRUD completo), `frontend/app/components/AppHeader.vue` actualizado (T7, enlace en menú), `docs/conceptos-nivel-4.md` (T8, 9 conceptos explicados)
 - Verificación manual completada (2026-10-09): build de Nuxt sin errores, endpoints CRUD verificados con curl (GET/POST/PUT/DELETE), 13/13 criterios PASS → **spec 005 cerrada, 9/9 tareas** en `specs/005-gestion-datos-frontend/tasks.md`
+- Spec 006 (nivel 5) implementada (2026-10-10): creados `backend/app/routers/upload.py` (endpoint `POST /api/datasets/upload` con validación de extensión/tamaño/JSON tabular, lectura con Pandas, estadísticas para columnas numéricas, preview 5 filas, limpieza NaN→None), `frontend/app/composables/useUpload.ts` (fetch+FormData), `frontend/app/components/FileUpload.vue` (subida con loading/error), `frontend/app/components/DataSummary.vue` (resumen completo), `frontend/app/pages/index.vue` (sección "Procesar archivo"), `frontend/app/components/AppHeader.vue` (enlace en menú), `docs/conceptos-nivel-5.md` (9 conceptos)
+- Dependencia añadida: `python-multipart>=0.0.9` en requirements.txt (FastAPI la requiere para `UploadFile`)
+- Verificación con curl (2026-10-10): CSV válido 200, JSON válido 200, .txt 400, vacío 400, >10MB 400, CSV malformado 400, JSON no tabular 400, JSON malformado 400, JSON array vacío 200 (CL-18), JSON plano 400 (CL-19); build de Nuxt sin errores → **spec 006 cerrada, 10/10 tareas** en `specs/006-procesar-csv-json-pandas/tasks.md`
