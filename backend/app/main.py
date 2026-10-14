@@ -8,6 +8,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.routers.datasets import router as datasets_router
+from app.routers.upload import router as upload_router
 
 app = FastAPI(
     title="Data Analysis Platform API",
@@ -61,3 +62,6 @@ def api_health():
 
 # Monta los endpoints Create, Read, Update and Delete o CRUD de datasets bajo /api/datasets.
 app.include_router(datasets_router)
+
+# Monta el endpoint de subida de archivos bajo /api/datasets/upload.
+app.include_router(upload_router)
