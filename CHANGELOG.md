@@ -4,6 +4,9 @@
 
 ### ✨ Features
 
+- feat: añadir endpoint upload con Pandas [`2667857`](https://github.com/ciretorres/data-analysis-platform/commit/2667857)
+- feat: añadir composable useUpload y componentes FileUpload y DataSummary [`93670fd`](https://github.com/ciretorres/data-analysis-platform/commit/93670fd)
+- feat: integrar sección "Procesar archivo" en index.vue con enlace en el menú [`fea14a0`](https://github.com/ciretorres/data-analysis-platform/commit/fea14a0)
 - feat: añadir composable useDatasets con CRUD completo de datasets [`be3d6f9`](https://github.com/ciretorres/data-analysis-platform/commit/be3d6f9)
 - feat: añadir componentes DatasetList, DatasetCard, DatasetForm, LoadingState y ErrorMessage [`c9f8b36`](https://github.com/ciretorres/data-analysis-platform/commit/c9f8b36)
 - feat: integrar sección "Gestión de datasets" en index.vue con modal, mensajes y confirmación [`435ec85`](https://github.com/ciretorres/data-analysis-platform/commit/435ec85)
@@ -11,6 +14,10 @@
 
 ### 📦 Other Changes
 
+- docs: añadir spec, plan y tasks del nivel 5 [`4df3f53`](https://github.com/ciretorres/data-analysis-platform/commit/4df3f53)
+- docs: documentar los conceptos del nivel 5 [`52335c7`](https://github.com/ciretorres/data-analysis-platform/commit/52335c7)
+- docs: actualizar AGENTS.md y MEMORY.md [`086dac7`](https://github.com/ciretorres/data-analysis-platform/commit/086dac7)
+- chore: actualizar comando super-commit [`b6a3ec5`](https://github.com/ciretorres/data-analysis-platform/commit/b6a3ec5)
 - chore: actualizar comando super-commit [`e332057`](https://github.com/ciretorres/data-analysis-platform/commit/e332057)
 - docs: actualizar constitución [`06bfd25`](https://github.com/ciretorres/data-analysis-platform/commit/06bfd25)
 - docs: añadir spec, plan y tasks del nivel 4 [`5d6a7c3`](https://github.com/ciretorres/data-analysis-platform/commit/5d6a7c3)
